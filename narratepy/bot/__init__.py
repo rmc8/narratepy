@@ -71,17 +71,13 @@ async def on_message(message):
         mp3_path=mp3_path_abs,
         voice_settings=vs,
     )
-    print("Que0")
     if mp3_path != NO_MP3 and not message.content.startswith(CMD_PREFIX):
-        print("Que1")
         source = discord.FFmpegPCMAudio(mp3_path_abs)
         enqueue(
             vc=message.guild.voice_client,
             guild=message.guild,
             source=source,
         )
-        print("Que2")
-    print("Que3")
     await bot.process_commands(message)
 
 
