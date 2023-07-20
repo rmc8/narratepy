@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  syntax_check:
+  build:
     working_directory: ~/narratepy
     docker:
       - image: circleci/python:latest
