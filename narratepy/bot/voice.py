@@ -70,7 +70,7 @@ class Voice:
         return re.sub(pattern, "", text, flags=re.DOTALL)
 
     def _gen_mp3(self, msg: str, mp3_path: str, voice_settings: VoiceSettings):
-        voices = self.engine.getProperty("voices")
+        # voices = self.engine.getProperty("voices")
         # self.engine.setProperty("voice", voices[voice_settings.voice].id)
         self.engine.setProperty("rate", voice_settings.rate)
         self.engine.save_to_file(msg, mp3_path)
