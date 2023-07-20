@@ -19,10 +19,11 @@ load_dotenv(".env")
 if platform.system() == "Windows":
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 intents = discord.Intents.all()
-CMD_PREFIX:str= "?"
+CMD_PREFIX: str = "?"
 bot = commands.Bot(intents=intents, command_prefix=CMD_PREFIX)
 queue_dict = defaultdict(deque)
 v = Voice()
+
 
 def play(vc, queue):
     if not queue or vc.is_playing():
@@ -49,12 +50,11 @@ async def on_message(message):
     print("#message.content:" + message.content)
     print("---on_message_end---")
 
-    
     # mp3 path
     now = datetime.now()
     mp3_path: str = f"./voice/voice_{now:%Y%m%d_%H%M%S}.mp3"
     p = pathlib.Path(mp3_path)
-    mp3_path_abs:str = str(p.resolve())
+    mp3_path_abs: str = str(p.resolve())
 
     # Cmd
     if message.content.strip().lower() == f"{CMD_PREFIX}join":
@@ -81,7 +81,7 @@ async def on_message(message):
             source=source,
         )
         print("Que2")
-    print("Que3") 
+    print("Que3")
     await bot.process_commands(message)
 
 

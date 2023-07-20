@@ -8,6 +8,7 @@ import bot
 warnings.simplefilter("ignore")
 VOICE_DIR = "./voice/"
 
+
 async def main():
     try:
         os.makedirs(VOICE_DIR, exist_ok=True)
